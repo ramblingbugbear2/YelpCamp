@@ -2,26 +2,20 @@ const mongoose = require('mongoose');
 const Campground = require('../models/campground');
 const cities = require('./cities');
 const {places, descriptors} = require('./seedhelpers')
+require('dotenv').config();
 
-mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp', {
-    //these are not needed as in newer mongo these are default and useCreateIndex is not supported now this was creating an error
-    // useNewUrlParser : true,
-    // useCreateIndex: true,
-    // useUnifiedTopology: true
-})
-
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", ()=> {
-    console.log("DATABASE CONNECTED...");
-});
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
+mongoose.connect(dbUrl)
+  .then(() => console.log("✅ Database connected"))
+  .catch(err => console.error("❌ MongoDB connection error:", err));
 //above copied from app.js
 
 const sample = array => array[Math.floor(Math.random()*array.length)];
 
 const seedDB = async() => {
     await Campground.deleteMany({});
-    for (let i = 0; i < 200; i++){
+    for (let i = 0; i < 200
+        ; i++){
         const random1000 = Math.floor(Math.random()*100);
         const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground ({
