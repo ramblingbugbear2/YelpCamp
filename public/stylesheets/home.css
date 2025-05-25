@@ -1,0 +1,50 @@
+
+
+/* ===============================
+   Ensure page always fills the viewport vertically
+   =============================== */
+html, body {
+    height: 100%;               /* Stretch html and body to fill the window */
+    margin: 0;                  /* Remove default browser margin */
+}
+
+/* ===============================
+   Sticky footer layout with flexbox
+   Darken background image with gradient for readability
+   =============================== */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1618526640189-81726d5dd707?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ===============================
+   Make <main> expand to push footer down (sticky footer)
+   =============================== */
+main {
+    flex: 1;                    /* Grows to take remaining space */
+}
+
+/* ===============================
+   Navbar link styles (for spacing and effects)
+   =============================== */
+.nav-link {
+    padding: 0.25rem 0;         /* Top and bottom padding only */
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);    /* Muted white by default */
+    border-bottom: 0.25rem solid transparent; /* Subtle underline effect */
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.5);    /* Keep color muted on hover */
+    border-bottom-color: rgba(255, 255, 255, 0.5); /* Underline on hover */
+}
+
+.nav-link:active {
+    color: white;                              /* Brighter on click/active */
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
