@@ -26,16 +26,9 @@ const sanitizeV5 = require('./utlis/monoSanitizeV5.js');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds.js');
 const reviewRoutes = require('./routes/reviews.js');
-const monoSanitizeV5 = require('./utlis/monoSanitizeV5.js');
+// const monoSanitizeV5 = require('./utlis/monoSanitizeV5.js');
 
-
-──────────────── 2️⃣ Database Connection ────────────────
-
-<<<<<<< HEAD
 mongoose.connect('mongodb+srv://rockstarvivek25:mJDWqv55A4K3Kz2U@cluster0.9yunzym.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-=======
-mongoose.connect('mongodb+srv://rockstarvivek25:c63pMJbgSm9AABUo@cluster0.9yunzym.mongodb.net/yelp-camp?retryWrites=true&w=majority&appName=Cluster0')
->>>>>>> 5b381749d5bc98434f30d5ae6a6695a5dbe5ddcf
   .then(() => console.log("✅ Database connected: yelp-camp (Atlas)"))
   .catch(err => console.error("❌ MongoDB Atlas connection error:", err));
 
