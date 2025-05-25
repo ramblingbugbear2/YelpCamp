@@ -28,9 +28,10 @@ const campgroundRoutes = require('./routes/campgrounds.js');
 const reviewRoutes = require('./routes/reviews.js');
 // const monoSanitizeV5 = require('./utlis/monoSanitizeV5.js');
 
-mongoose.connect('mongodb+srv://rockstarvivek25:mJDWqv55A4K3Kz2U@cluster0.9yunzym.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-  .then(() => console.log("✅ Database connected: yelp-camp (Atlas)"))
-  .catch(err => console.error("❌ MongoDB Atlas connection error:", err));
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
+mongoose.connect(dbUrl)
+  .then(() => console.log("✅ Database connected"))
+  .catch(err => console.error("❌ MongoDB connection error:", err));
 
 //   // local connection
 // mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp')
